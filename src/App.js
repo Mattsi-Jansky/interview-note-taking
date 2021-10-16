@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <details>
+        <summary>
+          C# & Dotnet
+        </summary>
+        <div class="details-body">
+          <details>
+            <summary>Is C# pass-by-reference, or pass-by-value?</summary>
+            <div class="question-body">
+
+              <textarea></textarea>
+            </div>
+          </details>
+          <details>
+            <summary>Explain Reflection in C#</summary>
+            <div class="question-body">
+
+              <textarea></textarea>
+            </div>
+          </details>
+        </div>
+      </details>
+      <details>
+        <summary>
+          Technical Breadth
+        </summary>
+        <div class="details-body">
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Leadership
+        </summary>
+        <div class="details-body">
+        </div>
+      </details>
     </div>
   );
 }
