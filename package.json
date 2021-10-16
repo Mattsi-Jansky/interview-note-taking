@@ -147,5 +147,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "html-inline-css-webpack-plugin": "1.11.1",
+    "html-inline-script-webpack-plugin": "1.1.4"
   }
 }
