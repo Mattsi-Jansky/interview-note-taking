@@ -1,4 +1,3 @@
-import { render, screen } from '@testing-library/react';
 import App from './App';
 import { shallow } from 'enzyme';
 import Category from './components/Category'
