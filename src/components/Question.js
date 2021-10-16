@@ -1,13 +1,16 @@
-function Question() {
-  return (
-    <details>
-      <summary>Is C# pass-by-reference, or pass-by-value?</summary>
-      <div class="question-body">
+import React from 'react';
 
-        <textarea></textarea>
-      </div>
-    </details>
-  )
+class Question extends React.Component {
+  render() {
+    return (
+      <details>
+        <summary>Is C# pass-by-reference, or pass-by-value?</summary>
+        <div class="question-body">
+          <textarea></textarea>
+        </div>
+      </details>
+    )
+  }
 }
 
 export default Question;
