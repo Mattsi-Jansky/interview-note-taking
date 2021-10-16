@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <Category name="C# & Dotnet"/>
     </div>
-  );
+  )
 }
 
 export default App

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 class QuestionAndAnswer extends React.Component {
   render() {
@@ -13,4 +13,4 @@ class QuestionAndAnswer extends React.Component {
   }
 }
 
-export default QuestionAndAnswer;
+export default QuestionAndAnswer

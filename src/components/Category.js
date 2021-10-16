@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import QuestionAndAnswer from './QuestionAndAnswer'
 
 class Category extends React.Component {
@@ -15,4 +15,4 @@ class Category extends React.Component {
   }
 }
 
-export default Category;
+export default Category
