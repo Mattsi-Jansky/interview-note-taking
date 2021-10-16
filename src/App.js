@@ -4,7 +4,7 @@ import Category from './components/Category'
 function App() {
   return (
     <div className="App">
-      <Category />
+      <Category name="C# & Dotnet"/>
     </div>
   );
 }

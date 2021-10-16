@@ -6,10 +6,10 @@ class Category extends React.Component {
     return (
       <details>
         <summary>
-          C# & Dotnet
+          {this.props.name}
         </summary>
         <div class="details-body">
-          <Question />
+          <Question question="Is C# pass-by-reference, or pass-by-value?"/>
         </div>
       </details>)
   }
