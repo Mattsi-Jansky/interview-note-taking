@@ -592,7 +592,11 @@ module.exports = function (webpackEnv) {
       isEnvProduction &&
         shouldInlineRuntimeChunk &&
         new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime-.+[.]js/]),
+      isEnvProduction &&
+        shouldInlineRuntimeChunk &&
         new HTMLInlineCSSWebpackPlugin(),
+      isEnvProduction &&
+        shouldInlineRuntimeChunk &&
         new HtmlInlineScriptPlugin(),
       // Makes some environment variables available in index.html.
       // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
