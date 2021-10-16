@@ -1,11 +1,11 @@
 import React from 'react';
 
-class Question extends React.Component {
+class QuestionAndAnswer extends React.Component {
   render() {
     return (
       <details>
         <summary>{this.props.question}</summary>
-        <div class="question-body">
+        <div className="question-body">
           <textarea></textarea>
         </div>
       </details>
@@ -13,4 +13,4 @@ class Question extends React.Component {
   }
 }
 
-export default Question;
+export default QuestionAndAnswer;

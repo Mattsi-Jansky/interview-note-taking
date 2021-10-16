@@ -1,5 +1,5 @@
 import React from 'react';
-import Question from './Question'
+import QuestionAndAnswer from './QuestionAndAnswer'
 
 class Category extends React.Component {
   render() {
@@ -8,8 +8,8 @@ class Category extends React.Component {
         <summary>
           {this.props.name}
         </summary>
-        <div class="details-body">
-          <Question question="Is C# pass-by-reference, or pass-by-value?"/>
+        <div className="details-body">
+          <QuestionAndAnswer question="Is C# pass-by-reference, or pass-by-value?"/>
         </div>
       </details>)
   }
