@@ -1,16 +1,33 @@
 import App from './App'
 import { shallow } from 'enzyme'
 import Category from './components/Category'
+import QuestionAndAnswer from './components/QuestionAndAnswer'
 
-const testCategoriesWithNoCategories = [ ]
+const testCategoriesWithNoCategories = []
 
-const testCategoriesWithOneCategory = [ { name:"Enzyme" } ]
+const testCategoriesWithOneCategory = [{ name:"Enzyme", questions: [] }]
 
 const testCategoriesWithMultipleCategories = [
-  { name:"Enzyme" },
-  { name:"Jest" },
-  { name:"Eslint" }
+  { name:"Enzyme", questions: [] },
+  { name:"Jest", questions: [] },
+  { name:"Eslint", questions: [] }
 ]
+
+const testCategoryWithOneQuestion = [{ 
+  name:"Enzyme",
+  questions: [
+    "What is the average speed of an unladen swallow?"
+  ]
+}]
+
+const testCategoryWithManyQuestions = [{ 
+  name:"Enzyme",
+  questions: [
+    "What is the average speed of an unladen swallow?",
+    "What is your favourite color?",
+    "Do you feel lucky?"
+  ]
+}]
 
 test('includes category', () => {
   const wrapper = shallow(<App categories={testCategoriesWithOneCategory} />)
@@ -37,4 +54,20 @@ test('get configuration from injected data for multiple categories', () => {
   expect(categories.get(0).props.name).toEqual("Enzyme")
   expect(categories.get(1).props.name).toEqual("Jest")
   expect(categories.get(2).props.name).toEqual("Eslint")
+})
+
+test('Create a question component', () => {
+  const wrapper = shallow(<App categories={testCategoryWithOneQuestion}/>)
+  var questionAndAnswers = wrapper.find(QuestionAndAnswer)
+  expect(questionAndAnswers.length).toEqual(1)
+  expect(questionAndAnswers.props().question).toBe("What is the average speed of an unladen swallow?")
+})
+
+test('Create question components', () => {
+  const wrapper = shallow(<App categories={testCategoryWithManyQuestions}/>)
+  var questionAndAnswers = wrapper.find(QuestionAndAnswer)
+  expect(questionAndAnswers.length).toEqual(3)
+  expect(questionAndAnswers.get(0).props.question).toBe("What is the average speed of an unladen swallow?")
+  expect(questionAndAnswers.get(1).props.question).toBe("What is your favourite color?")
+  expect(questionAndAnswers.get(2).props.question).toBe("Do you feel lucky?")
 })
