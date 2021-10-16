@@ -9,7 +9,7 @@ class Category extends React.Component {
           {this.props.name}
         </summary>
         <div className="details-body">
-          <QuestionAndAnswer question="Is C# pass-by-reference, or pass-by-value?"/>
+          {this.props.children}
         </div>
       </details>)
   }
