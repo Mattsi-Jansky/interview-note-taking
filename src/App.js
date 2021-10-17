@@ -5,24 +5,35 @@ import Category from './components/Category'
 import QuestionAndAnswer from './components/QuestionAndAnswer'
 
 class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {}
+    if(this.props.candidateName !== undefined) {
+      this.state.candidateName = this.props.candidateName
+    }
+  }
+
+  renderCategories = () => this.props.categories
+    .map((category) => ({
+      ...category,
+      questions: category.questions.map((question, i) =>
+        <QuestionAndAnswer key={i}
+          candidateName={this.props.candidateName}
+          category={category.name}
+          question={question} />)
+    }))
+    .map((category, i) =>
+      <Category key={i} name={category.name}>
+        {category.questions}
+      </Category>
+    )
+
   render() {
-    const categories = this.props.categories
-      .map((category) => ({
-        ...category,
-        questions: category.questions.map((question, i) =>
-          <QuestionAndAnswer key={i} 
-            candidateName={this.props.candidateName}
-            category={category.name}
-            question={question} />)
-      }))
-      .map((category, i) =>
-        <Category key={i} name={category.name}>
-          {category.questions}
-        </Category>
-      )
+    const categories = this.state.candidateName !== undefined ? this.renderCategories() : []
     return (
       <div className="App">
-        <CandidateSelector 
+        <CandidateSelector
           updateSelectedOption={candidateName => this.setState({ candidateName: candidateName })}
         />
         {categories}

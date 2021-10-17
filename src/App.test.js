@@ -31,20 +31,26 @@ const testCategoryWithManyQuestions = [{
 }]
 
 test('includes category', () => {
-  const wrapper = shallow(<App categories={testCategoriesWithOneCategory} />)
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoriesWithOneCategory} />)
 
   expect(wrapper.find(Category).length).toBe(1)
 })
 
 test('render no categories if no categories are passed', () => {
-  const wrapper = shallow(<App categories={testCategoriesWithNoCategories}/>)
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoriesWithNoCategories}/>)
 
   var categories = wrapper.find(Category)
   expect(categories.length).toEqual(0)
 })
 
 test('get configuration from injected data for one category', () => {
-  const wrapper = shallow(<App categories={testCategoriesWithOneCategory}/>)
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoriesWithOneCategory}/>)
 
   var categories = wrapper.find(Category)
   expect(categories.length).toEqual(1)
@@ -52,7 +58,9 @@ test('get configuration from injected data for one category', () => {
 })
 
 test('get configuration from injected data for multiple categories', () => {
-  const wrapper = shallow(<App categories={testCategoriesWithMultipleCategories}/>)
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoriesWithMultipleCategories}/>)
 
   var categories = wrapper.find(Category)
   expect(categories.length).toEqual(3)
@@ -62,7 +70,9 @@ test('get configuration from injected data for multiple categories', () => {
 })
 
 test('Create a question component', () => {
-  const wrapper = shallow(<App categories={testCategoryWithOneQuestion}/>)
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoryWithOneQuestion}/>)
 
   var questionAndAnswers = wrapper.find(QuestionAndAnswer)
   expect(questionAndAnswers.length).toEqual(1)
@@ -70,7 +80,9 @@ test('Create a question component', () => {
 })
 
 test('Create question components', () => {
-  const wrapper = shallow(<App categories={testCategoryWithManyQuestions}/>)
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoryWithManyQuestions}/>)
 
   var questionAndAnswers = wrapper.find(QuestionAndAnswer)
   expect(questionAndAnswers.length).toEqual(3)
@@ -80,11 +92,21 @@ test('Create question components', () => {
 })
 
 test('Pass callback to CandidateSelector that sets App state', () => {
-  const wrapper = shallow(<App categories={testCategoryWithOneQuestion}/>)
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoryWithOneQuestion}/>)
   const candidateSelector = wrapper.find(CandidateSelector)
   const callback = candidateSelector.props().updateSelectedOption
 
   callback('my little test')
 
   expect(wrapper.state('candidateName')).toBe('my little test')
+})
+
+test('Do not display any categories if no candidate selected', () => {
+  const wrapper = shallow(<App 
+    categories={testCategoriesWithMultipleCategories}/>)
+
+  var categories = wrapper.find(Category)
+  expect(categories.length).toEqual(0)
 })
