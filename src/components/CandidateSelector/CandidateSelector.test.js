@@ -21,6 +21,15 @@ test('displays name from localstorage', () => {
   expect(option).toBeInTheDocument()
 })
 
+test('displays names from localstorage', () => {
+  localStorage.setItem('names', JSON.stringify(["Vader, Darth", "Organa, Leia"]))
+  const wrapper = render(<CandidateSelector />)
+  const selectorNode = wrapper.getByLabelText("Candidate")
+  selectEvent.openMenu(selectorNode)
+  expect(wrapper.getByText("Vader, Darth")).toBeInTheDocument()
+  expect(wrapper.getByText("Organa, Leia")).toBeInTheDocument()
+})
+
 test('adds new candidate name to localstorage', async () => {
   const wrapper = render(<CandidateSelector />)
   const selectorNode = wrapper.getByLabelText("Candidate")
@@ -28,4 +37,3 @@ test('adds new candidate name to localstorage', async () => {
   const result = localStorage.getItem('names')
   expect(result).toBe('["Vader, Darth"]')
 })
-
