@@ -6,7 +6,7 @@ class QuestionAndAnswer extends React.Component {
       <details>
         <summary>{this.props.question}</summary>
         <div className="question-body">
-          <textarea></textarea>
+          <textarea defaultValue={localStorage.getItem('default-foo bar')}/>
         </div>
       </details>
     )
