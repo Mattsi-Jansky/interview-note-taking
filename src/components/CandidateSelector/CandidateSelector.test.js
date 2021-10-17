@@ -6,6 +6,12 @@ beforeEach(() => {
   localStorage.clear()
 })
 
+test('creates localStorage entry if none exists', () => {
+  const wrapper = render(<CandidateSelector />)
+  const result = localStorage.getItem('names')
+  expect(result).toBe('[]')
+})
+
 test('displays name from localstorage', () => {
   localStorage.setItem('names', JSON.stringify(["Vader, Darth"]))
   const wrapper = render(<CandidateSelector />)

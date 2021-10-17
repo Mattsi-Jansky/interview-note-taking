@@ -7,7 +7,11 @@ class CandidateSelector extends React.Component {
 
   constructor(props) {
     super(props)
-    const names = JSON.parse(localStorage.getItem('names'))
+    var names = JSON.parse(localStorage.getItem('names'))
+    if(names == null) {
+      localStorage.setItem('names', "[]")
+      names = []
+    }
     this.state = {
       options: names != null ? names.map(name => ({ value: name, label: name })) : [],
       selectedOption: ""
