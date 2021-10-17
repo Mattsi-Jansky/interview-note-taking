@@ -32,7 +32,7 @@ test('given nothing in localstorage, textarea is blank', () => {
     question="foo bar" />)
 
   const textarea = wrapper.find('textarea')
-  expect(textarea.props().defaultValue).toBe("")
+  expect(textarea.props().value).toBe("")
 })
 
 test('saves answer to localstorage', () => {
