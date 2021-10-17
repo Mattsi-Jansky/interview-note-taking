@@ -26,6 +26,7 @@ class CandidateSelector extends React.Component {
       options: this.optionsFromNames(names),
       selectedOption: { value: candidateName, label: candidateName }
     })
+    this.props.updateSelectedOption(candidateName)
   }
 
   optionsFromNames = (names) => names.map(name => ({ value: name, label: name }))
@@ -44,6 +45,7 @@ class CandidateSelector extends React.Component {
           options={this.state.options }
           onChange={(candidate) => {
             this.setState({ selectedOption: candidate })
+            this.props.updateSelectedOption(candidate.value)
           }}/>
       </div>
     )
