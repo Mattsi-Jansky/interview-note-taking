@@ -10,7 +10,10 @@ class App extends React.Component {
       .map((category) => ({
         ...category,
         questions: category.questions.map((question, i) =>
-          <QuestionAndAnswer key={i} question={question} />)
+          <QuestionAndAnswer key={i} 
+            candidateName={this.props.candidateName}
+            category={category.name}
+            question={question} />)
       }))
       .map((category, i) =>
         <Category key={i} name={category.name}>
@@ -20,7 +23,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <CandidateSelector 
-          updateSelectionOption={(candidateName => this.setState({ candidateName: candidateName }))}
+          updateSelectedOption={candidateName => this.setState({ candidateName: candidateName })}
         />
         {categories}
       </div>

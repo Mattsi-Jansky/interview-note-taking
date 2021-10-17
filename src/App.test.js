@@ -71,7 +71,7 @@ test('Create a question component', () => {
 
 test('Create question components', () => {
   const wrapper = shallow(<App categories={testCategoryWithManyQuestions}/>)
-  
+
   var questionAndAnswers = wrapper.find(QuestionAndAnswer)
   expect(questionAndAnswers.length).toEqual(3)
   expect(questionAndAnswers.get(0).props.question).toBe("What is the average speed of an unladen swallow?")
@@ -82,7 +82,7 @@ test('Create question components', () => {
 test('Pass callback to CandidateSelector that sets App state', () => {
   const wrapper = shallow(<App categories={testCategoryWithOneQuestion}/>)
   const candidateSelector = wrapper.find(CandidateSelector)
-  const callback = candidateSelector.props().updateSelectionOption
+  const callback = candidateSelector.props().updateSelectedOption
 
   callback('my little test')
 
