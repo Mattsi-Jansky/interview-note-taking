@@ -19,11 +19,12 @@ class CandidateSelector extends React.Component {
     names.push(candidateName)
     localStorage.setItem('names', JSON.stringify(names))
     this.refresh()
+    this.setState({ selectedOption: { value: candidateName, label: candidateName } })
   }
 
   refresh() {
     const names = JSON.parse(localStorage.getItem('names')) || []
-    this.setState({ options: names.forEach(name => ({ value: name, label: name })) })
+    this.setState({ options: names.map(name => ({ value: name, label: name })) })
   }
 
   render() {
@@ -37,8 +38,8 @@ class CandidateSelector extends React.Component {
           value={this.state.selectedOption}
           onCreateOption={this.onCreate.bind(this)}
           options={this.state.options }
-          onChange={(property, value) => {
-            this.setState({ selectedOption: value })
+          onChange={(candidate) => {
+            this.setState({ selectedOption: candidate })
           }}/>
       </div>
     )

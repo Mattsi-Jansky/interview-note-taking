@@ -15,11 +15,11 @@ test('displays name from localstorage', () => {
   expect(option).toBeInTheDocument()
 })
 
-// test('adds new candidate name to localstorage', async () => {
-//   const wrapper = render(<CandidateSelector />)
-  // const selectorNode = wrapper.getByLabelText("Candidate")
-  // await selectEvent.create(selectorNode, "Vader, Darth")
-//   const result = localStorage.getItem('names')
-//   expect(result).toBe('["Vader, Darth"]')
-// })
+test('adds new candidate name to localstorage', async () => {
+  const wrapper = render(<CandidateSelector />)
+  const selectorNode = wrapper.getByLabelText("Candidate")
+  await selectEvent.create(selectorNode, "Vader, Darth")
+  const result = localStorage.getItem('names')
+  expect(result).toBe('["Vader, Darth"]')
+})
 
