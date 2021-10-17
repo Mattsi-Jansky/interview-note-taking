@@ -9,7 +9,8 @@ beforeEach(() => {
 })
 
 test('creates localStorage entry if none exists', () => {
-  const wrapper = render(<CandidateSelector updateSelectedOption={noop}/>)
+  render(<CandidateSelector updateSelectedOption={noop}/>)
+
   const result = localStorage.getItem('names')
   expect(result).toBe('[]')
 })
@@ -17,8 +18,10 @@ test('creates localStorage entry if none exists', () => {
 test('displays name from localstorage', () => {
   localStorage.setItem('names', JSON.stringify(["Vader, Darth"]))
   const wrapper = render(<CandidateSelector updateSelectedOption={noop}/>)
+
   const selectorNode = wrapper.getByLabelText("Candidate")
   selectEvent.openMenu(selectorNode)
+
   const option = wrapper.getByText("Vader, Darth")
   expect(option).toBeInTheDocument()
 })
@@ -26,16 +29,20 @@ test('displays name from localstorage', () => {
 test('displays names from localstorage', () => {
   localStorage.setItem('names', JSON.stringify(["Vader, Darth", "Organa, Leia"]))
   const wrapper = render(<CandidateSelector updateSelectedOption={noop}/>)
+
   const selectorNode = wrapper.getByLabelText("Candidate")
   selectEvent.openMenu(selectorNode)
+
   expect(wrapper.getByText("Vader, Darth")).toBeInTheDocument()
   expect(wrapper.getByText("Organa, Leia")).toBeInTheDocument()
 })
 
 test('adds new candidate name to localstorage', async () => {
   const wrapper = render(<CandidateSelector updateSelectedOption={noop}/>)
+
   const selectorNode = wrapper.getByLabelText("Candidate")
   await selectEvent.create(selectorNode, "Vader, Darth")
+
   const result = localStorage.getItem('names')
   expect(result).toBe('["Vader, Darth"]')
 })
