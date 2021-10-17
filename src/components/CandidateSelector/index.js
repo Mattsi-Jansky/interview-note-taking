@@ -1,12 +1,14 @@
 import React from 'react'
 import './CandidateSelector.css'
 
+import Selector from 'react-select/creatable'
+
 class CandidateSelector extends React.Component {
   render() {
     return (
       <div id="candidate_selector">
-        <label for="candidate_name">Candidate</label>
-        <input type="text" id="candidate_name"></input>
+        <label htmlFor="candidate_name">Candidate</label>
+        <Selector id="candidate_name" />
       </div>
     )
   }
