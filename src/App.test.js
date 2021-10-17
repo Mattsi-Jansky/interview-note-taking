@@ -2,6 +2,7 @@ import App from './App'
 import { shallow } from 'enzyme'
 import Category from './components/Category'
 import QuestionAndAnswer from './components/QuestionAndAnswer'
+import CandidateSelector from './components/CandidateSelector'
 
 const testCategoriesWithNoCategories = []
 
@@ -70,4 +71,14 @@ test('Create question components', () => {
   expect(questionAndAnswers.get(0).props.question).toBe("What is the average speed of an unladen swallow?")
   expect(questionAndAnswers.get(1).props.question).toBe("What is your favourite color?")
   expect(questionAndAnswers.get(2).props.question).toBe("Do you feel lucky?")
+})
+
+test('Pass callback to CandidateSelector that sets App state', () => {
+  const wrapper = shallow(<App categories={testCategoryWithOneQuestion}/>)
+  const candidateSelector = wrapper.find(CandidateSelector)
+  const callback = candidateSelector.props().updateSelectionOption
+
+  callback('my little test')
+
+  expect(wrapper.state('candidateName')).toBe('my little test')
 })

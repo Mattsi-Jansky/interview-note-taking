@@ -19,7 +19,9 @@ class App extends React.Component {
       )
     return (
       <div className="App">
-        <CandidateSelector/>
+        <CandidateSelector 
+          updateSelectionOption={(candidateName => this.setState({ candidateName: candidateName }))}
+        />
         {categories}
       </div>
     )
