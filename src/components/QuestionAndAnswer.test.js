@@ -32,3 +32,18 @@ test('saves answer to localstorage', () => {
   const result = localStorage.getItem('default-foo bar')
   expect(result).toBe('bar foo')
 })
+
+test('uses question as key for localstorage when reading', () => {
+  localStorage.setItem('default-testy mctestface', 'bar foo')
+  render(<QuestionAndAnswer question="testy mctestface" />)
+  const questionTextValue = screen.getByText(/bar foo/i)
+  expect(questionTextValue).toBeInTheDocument()
+})
+
+test('uses question as key for localstorage when writing', () => {
+  const wrapper = shallow(<QuestionAndAnswer question="testy mctestface" />)
+  const textarea = wrapper.find('textarea')
+  textarea.simulate('change', { target: { value: 'bar foo' } })
+  const result = localStorage.getItem('default-testy mctestface')
+  expect(result).toBe('bar foo')
+})
