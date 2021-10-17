@@ -21,7 +21,6 @@ test('renders many children', () => {
     <div id="test" />
     <div id="test2" />
   </Category>)
-  console.log(wrapper.debug())
   const divs = wrapper.find('div')
   expect(divs.length).toBe(3)
 })
