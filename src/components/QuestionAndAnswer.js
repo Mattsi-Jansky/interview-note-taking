@@ -2,11 +2,11 @@ import React from 'react'
 
 class QuestionAndAnswer extends React.Component {
   handleChange(event) {
-    localStorage.setItem('default-'+this.props.question, event.target.value)
+    localStorage.setItem(`default-${this.props.category}-${this.props.question}`, event.target.value)
   }
 
   render() {
-    const answer = localStorage.getItem('default-'+this.props.question) || ""
+    const answer = localStorage.getItem(`default-${this.props.category}-${this.props.question}`) || ""
     return (
       <details>
         <summary>{this.props.question}</summary>
