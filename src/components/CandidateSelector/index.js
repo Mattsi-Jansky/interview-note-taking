@@ -7,29 +7,29 @@ class CandidateSelector extends React.Component {
 
   constructor(props) {
     super(props)
-    var names = JSON.parse(localStorage.getItem('names'))
+    var names = this.getNames()
     if(names == null) {
       localStorage.setItem('names', "[]")
       names = []
     }
     this.state = {
-      options: names != null ? names.map(name => ({ value: name, label: name })) : [],
+      options: this.optionsFromNames(names),
       selectedOption: ""
     }
   }
 
   onCreate(candidateName) {
-    const names = JSON.parse(localStorage.getItem('names')) || []
+    const names = this.getNames()
     names.push(candidateName)
     localStorage.setItem('names', JSON.stringify(names))
-    this.refresh()
-    this.setState({ selectedOption: { value: candidateName, label: candidateName } })
+    this.setState({ 
+      options: this.optionsFromNames(names),
+      selectedOption: { value: candidateName, label: candidateName }
+    })
   }
 
-  refresh() {
-    const names = JSON.parse(localStorage.getItem('names')) || []
-    this.setState({ options: names.map(name => ({ value: name, label: name })) })
-  }
+  optionsFromNames = (names) => names.map(name => ({ value: name, label: name }))
+  getNames = () => JSON.parse(localStorage.getItem('names'))
 
   render() {
     return (
