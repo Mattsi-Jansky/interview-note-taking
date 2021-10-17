@@ -1,5 +1,4 @@
 import React from 'react'
-import QuestionAndAnswer from './QuestionAndAnswer'
 
 class Category extends React.Component {
   render() {
