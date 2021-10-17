@@ -3,9 +3,10 @@
   top: 0;
   left: 0;
   padding: 10px;
-  background-color: rgb(52, 66, 55);
+  background-color:  	#aa6f73;
   font-size: x-large;
   width: 15%;
+  border-bottom-right-radius: 10px;
 }
 
 #candidate_selector label {
