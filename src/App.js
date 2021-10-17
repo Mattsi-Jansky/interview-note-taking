@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import CandidateSelector from './components/CandidateSelector'
 import Category from './components/Category'
 import QuestionAndAnswer from './components/QuestionAndAnswer'
 
@@ -18,6 +19,7 @@ class App extends React.Component {
       )
     return (
       <div className="App">
+        <CandidateSelector/>
         {categories}
       </div>
     )
