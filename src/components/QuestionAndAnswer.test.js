@@ -24,3 +24,11 @@ test('given nothing in localstorage, textarea is blank', () => {
   const textarea = wrapper.find('textarea')
   expect(textarea.props().defaultValue).toBe("")
 })
+
+test('saves answer to localstorage', () => {
+  const wrapper = shallow(<QuestionAndAnswer question="foo bar" />)
+  const textarea = wrapper.find('textarea')
+  textarea.simulate('change', { target: { value: 'bar foo' } })
+  const result = localStorage.getItem('default-foo bar')
+  expect(result).toBe('bar foo')
+})
