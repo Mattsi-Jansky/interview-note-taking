@@ -71,8 +71,9 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start": "node scripts/compileQuestions.js && node scripts/start.js",
+    "build": "node scripts/compileQuestions.js && node scripts/build.js",
+    "compileQuestions": "node scripts/compileQuestions.js",
     "test": "node scripts/test.js",
     "lint": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix"

@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Private custom config- your interview questions
+questions/*
+
+# Compiled JS code
+src/compiledQuestions.js

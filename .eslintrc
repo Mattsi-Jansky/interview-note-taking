@@ -2,6 +2,7 @@
   "extends": [
     "react-app"
   ],
+  "ignorePatterns": ["src/compiledQuestions.js"],
   "rules": {
     "semi": ["error", "never"]
   }
