@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Interview Note-Taking App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An app for taking notes during conversational interviews.Stores notes locally in the browser.
 
-## Available Scripts
+For obvious reasons I don't want to actually publish the set of questions I ask candidates. So the app is setup such that you can add questions as JSON config files before build, and they are gitignored so they don't end up in version control.
 
-In the project directory, you can run:
+## Run Tests
 
-### `yarn start`
+`npm run test`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To use a watch, pass `--watch` argument.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup
 
-### `yarn test`
+By default the app won't have any questions in it. Copy `questions/example.json` and fill in some questions. Each file in `questions/` represents a category of questions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Run in dev mode
 
-### `yarn build`
+`npm run start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. Uses a watch, will re-build changed files and update in the browser. However, **changes to `questions/` whill not be updated until the app is restarted**. This is because it relies on code generation.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`yarn build`
 
-### `yarn eject`
+Builds the app to `build/index.html`. All CSS, JS, etc is bundled in one file.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Motivation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Candidates should be interviewed on equal footing**. If my questions are not broad enough then I may inadvertently ask a candidate some questions that they aren't equipped to handle while missing other just as important questions that may have better demonstrated their skill, or visca-versa. I should strive not to get caught in local maxima/minima hills/valleys and instead ask a broader set of questions, which should ensure candidates have more opportunities to prove themselves. Similarly, questions should be consistent- asking about significantly different areas in different interviews may not be fair to candidates.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**An interview should be a conversation**. The intention is not for these questions to be overly specific or to turn interviewing into a tick-box exercise. They're intended for use as reminders, to make it easier to guide the conversation in helpful directions. I hope to be able to quickly scroll through the app and see which areas I haven't yet taken many notes in yet, where I haven't dug deep enough in yet and use the questions as reminders to help expand that area.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**A webapp for this specific purpose is better than a text editor**. I would think this, because I enjoy writing code for code's sake anyway. But having done dozens of interviews with GDocs sat in front of me I do think that a webapp designed for the purpose could be much more helpful.
 
-## Learn More
+**An interviewer should iterate on and improve their set of questions over time**. I want to think seriously about the questions I ask in interviews, try new approaches, learn what does and doesn't work, and keep improving.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Todo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* `name` in the question category JSON structure should make it clearer what it's the name of- `categoryName`.
+* What about general notes within a category that don't fit a particular question- should each category have a general notes text area?
+* Add optional hints to questions.
+  * I don't want it to turn interviewing into a check-box exercise, so these should be optional and not expected. But it could be useful to have hints as to what correct answer is expected, particularly for technuical questions.
+* Select which categories to show.
+  * Not every candidate is likely to apply to every category- this way you can select which categories to test a candidate on beforehand the interview starts.
+  * Eg some categories might be "dotnet", "java", "javascript" and you could select from them the languages that this candidate has experience in.
+  * App should remember which categories were selected for which candidate
+  * Each category should have an option 
+* When switching to a candidate, automatically expand the `Option`s that have answers already and minimise the ones that don't.
+* Export the data in some format
+* Come up with a better name
