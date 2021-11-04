@@ -38,7 +38,6 @@ Builds the app to `build/index.html`. All CSS, JS, etc is bundled in one file.
 
 ## Todo
 
-* What about general notes within a category that don't fit a particular question- should each category have a general notes text area?
 * Add optional hints to questions.
   * I don't want it to turn interviewing into a check-box exercise, so these should be optional and not expected. But it could be useful to have hints as to what correct answer is expected, particularly for technuical questions.
 * Select which categories to show.

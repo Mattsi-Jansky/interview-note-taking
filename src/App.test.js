@@ -69,6 +69,16 @@ test('get configuration from injected data for multiple categories', () => {
   expect(categories.get(2).props.name).toEqual("Eslint")
 })
 
+test('Pass candidateName to Category', () => {
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoriesWithOneCategory}/>)
+
+  var categories = wrapper.find(Category)
+  expect(categories.length).toEqual(1)
+  expect(categories.props().candidateName).toEqual("Dave")
+})
+
 test('Create a question component', () => {
   const wrapper = shallow(<App 
     candidateName="Dave"

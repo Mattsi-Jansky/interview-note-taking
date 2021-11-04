@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { shallow } from 'enzyme'
+import Answer from './Answer'
 import Category from './Category'
 
 test('renders category name', () => {
@@ -26,4 +27,14 @@ test('renders many children', () => {
 
   const divs = wrapper.find('div')
   expect(divs.length).toBe(3)
+})
+
+test('renders general-purpose answer', () => {
+  const wrapper = shallow(<Category 
+    candidateName="barfoo"
+    name="foo bar">
+  </Category>)
+
+  const answer =  wrapper.find(Answer)
+  expect(answer.props().storageKey).toBe("barfoo-foo bar")
 })
