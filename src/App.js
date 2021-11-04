@@ -24,7 +24,7 @@ class App extends React.Component {
           question={question} />)
     }))
     .map((category, i) =>
-      <Category key={i} name={category.name}>
+      <Category key={i} name={category.categoryName}>
         {category.questions}
       </Category>
     )

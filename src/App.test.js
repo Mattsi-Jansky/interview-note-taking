@@ -6,23 +6,23 @@ import CandidateSelector from './components/CandidateSelector'
 
 const testCategoriesWithNoCategories = []
 
-const testCategoriesWithOneCategory = [{ name:"Enzyme", questions: [] }]
+const testCategoriesWithOneCategory = [{ categoryName:"Enzyme", questions: [] }]
 
 const testCategoriesWithMultipleCategories = [
-  { name:"Enzyme", questions: [] },
-  { name:"Jest", questions: [] },
-  { name:"Eslint", questions: [] }
+  { categoryName:"Enzyme", questions: [] },
+  { categoryName:"Jest", questions: [] },
+  { categoryName:"Eslint", questions: [] }
 ]
 
 const testCategoryWithOneQuestion = [{ 
-  name:"Enzyme",
+  categoryName:"Enzyme",
   questions: [
     "What is the average speed of an unladen swallow?"
   ]
 }]
 
 const testCategoryWithManyQuestions = [{ 
-  name:"Enzyme",
+  categoryName:"Enzyme",
   questions: [
     "What is the average speed of an unladen swallow?",
     "What is your favourite color?",
