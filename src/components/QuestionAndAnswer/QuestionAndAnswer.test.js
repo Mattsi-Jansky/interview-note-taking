@@ -14,7 +14,7 @@ test('renders question', () => {
 })
 
 test('loads answer from localstorage', () => {
-  localStorage.setItem('default-category-foo bar', 'bar foo')
+  localStorage.setItem('answer-default-category-foo bar', 'bar foo')
 
   render(<QuestionAndAnswer
     candidateName="default"
@@ -44,12 +44,12 @@ test('saves answer to localstorage', () => {
 
   textarea.simulate('change', { target: { value: 'bar foo' } })
 
-  const result = localStorage.getItem('default-category-foo bar')
+  const result = localStorage.getItem('answer-default-category-foo bar')
   expect(result).toBe('bar foo')
 })
 
 test('uses question as key for localstorage when reading', () => {
-  localStorage.setItem('default-category-testy mctestface', 'bar foo')
+  localStorage.setItem('answer-default-category-testy mctestface', 'bar foo')
 
   render(<QuestionAndAnswer
     candidateName="default"
@@ -69,12 +69,12 @@ test('uses question as key for localstorage when writing', () => {
   const textarea = wrapper.find('textarea')
   textarea.simulate('change', { target: { value: 'bar foo' } })
 
-  const result = localStorage.getItem('default-category-testy mctestface')
+  const result = localStorage.getItem('answer-default-category-testy mctestface')
   expect(result).toBe('bar foo')
 })
 
 test('uses category as key for localstorage when reading', () => {
-  localStorage.setItem('default-testy mctestface-foo bar', 'bar foo')
+  localStorage.setItem('answer-default-testy mctestface-foo bar', 'bar foo')
 
   render(<QuestionAndAnswer 
     candidateName="default"
@@ -94,12 +94,12 @@ test('uses category as key for localstorage when writing', () => {
   const textarea = wrapper.find('textarea')
   textarea.simulate('change', { target: { value: 'bar foo' } })
   
-  const result = localStorage.getItem('default-testy mctestface-foo bar')
+  const result = localStorage.getItem('answer-default-testy mctestface-foo bar')
   expect(result).toBe('bar foo')
 })
 
 test('uses candidate name as key for localstorage when reading', () => {
-  localStorage.setItem('testy mctestface-category-foo bar', 'bar foo')
+  localStorage.setItem('answer-testy mctestface-category-foo bar', 'bar foo')
 
   render(<QuestionAndAnswer 
     candidateName="testy mctestface" 
@@ -119,6 +119,6 @@ test('uses candidate name as key for localstorage when writing', () => {
   const textarea = wrapper.find('textarea')
   textarea.simulate('change', { target: { value: 'bar foo' } })
   
-  const result = localStorage.getItem('testy mctestface-category-foo bar')
+  const result = localStorage.getItem('answer-testy mctestface-category-foo bar')
   expect(result).toBe('bar foo')
 })

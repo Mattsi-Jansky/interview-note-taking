@@ -10,7 +10,7 @@ describe('Regardless of storageKey', () => {
 
   ['testkey','another test key','test$%20_K3Y'].forEach((i) => {
     test(`loads answer from localstorage given key '${i}'`, () => {
-      localStorage.setItem('test', 'bar foo')
+      localStorage.setItem('answer-test', 'bar foo')
 
       render(<Answer storageKey="test" />)
 
@@ -31,7 +31,7 @@ describe('Regardless of storageKey', () => {
 
       textarea.simulate('change', { target: { value: 'bar foo' } })
 
-      const result = localStorage.getItem('test')
+      const result = localStorage.getItem('answer-test')
       expect(result).toBe('bar foo')
     })
   })

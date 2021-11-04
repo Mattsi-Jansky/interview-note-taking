@@ -15,12 +15,12 @@ class Answer extends React.Component {
   }
 
   handleChange(event) {
-    localStorage.setItem(this.props.storageKey, event.target.value)
+    localStorage.setItem(`answer-${this.props.storageKey}`, event.target.value)
     this.setState({value: event.target.value})
   }
 
   getStoredValue() {
-    const storedValue = localStorage.getItem(this.props.storageKey)
+    const storedValue = localStorage.getItem(`answer-${this.props.storageKey}`)
     return storedValue == null ? "" : storedValue
   }
 
