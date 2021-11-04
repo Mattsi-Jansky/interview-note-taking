@@ -30,7 +30,7 @@ class QuestionAndAnswer extends React.Component {
     return (
       <details>
         <summary>{this.props.question}</summary>
-        <div className="question-body">
+        <div>
           <textarea 
             value={this.state.value}
             onChange={this.handleChange.bind(this)}/>
