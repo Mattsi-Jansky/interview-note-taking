@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import QuestionAndAnswer from './QuestionAndAnswer'
+import QuestionAndAnswer from '.'
 import { shallow } from 'enzyme'
 
 beforeEach(() => {
