@@ -24,8 +24,10 @@ const testCategoryWithOneQuestion = [{
 const testCategoryWithManyQuestions = [{ 
   categoryName:"Enzyme",
   questions: [
-    { "value": "What is the average speed of an unladen swallow?" },
-    { "value":"What is your favourite color?" },
+    { "value": "What is the average speed of an unladen swallow?",
+      "hint": "An African swallow, specifically" },
+    { "value":"What is your favourite color?",
+      "hint": "Don't let them change their answer"},
     { "value":"Do you feel lucky?" }
   ]
 }]
@@ -79,7 +81,7 @@ test('Pass candidateName to Category', () => {
   expect(categories.props().candidateName).toEqual("Dave")
 })
 
-test('Create a question component', () => {
+test('Create a QuestionAndAnswer component', () => {
   const wrapper = shallow(<App 
     candidateName="Dave"
     categories={testCategoryWithOneQuestion}/>)
@@ -89,7 +91,7 @@ test('Create a question component', () => {
   expect(questionAndAnswers.props().question).toBe("What is the average speed of an unladen swallow?")
 })
 
-test('Create question components', () => {
+test('Create QuestionAndAnswer components', () => {
   const wrapper = shallow(<App 
     candidateName="Dave"
     categories={testCategoryWithManyQuestions}/>)
@@ -99,6 +101,18 @@ test('Create question components', () => {
   expect(questionAndAnswers.get(0).props.question).toBe("What is the average speed of an unladen swallow?")
   expect(questionAndAnswers.get(1).props.question).toBe("What is your favourite color?")
   expect(questionAndAnswers.get(2).props.question).toBe("Do you feel lucky?")
+})
+
+test('Pass hints to QuestionAndAnswer components', () => {
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoryWithManyQuestions}/>)
+
+  var questionAndAnswers = wrapper.find(QuestionAndAnswer)
+  expect(questionAndAnswers.length).toEqual(3)
+  expect(questionAndAnswers.get(0).props.hint).toBe("An African swallow, specifically")
+  expect(questionAndAnswers.get(1).props.hint).toBe("Don't let them change their answer")
+  expect(questionAndAnswers.get(2).props.hint).toBeUndefined()
 })
 
 test('Pass callback to CandidateSelector that sets App state', () => {

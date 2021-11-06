@@ -1,7 +1,8 @@
 { 
   "categoryName":"test1",
   "questions": [
-    { "value": "What is the average speed of an unladen swallow?" },
+    { "value": "What is the average speed of an unladen swallow?",
+      "hint": "An African swallow, specifically" },
     { "value":"What is your favourite color?" },
     { "value":"Do you feel lucky?" }
   ]
