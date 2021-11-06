@@ -1,13 +1,13 @@
 body {
-  background-color: #66545e;
-  color: #222;
+  background-color: rgb(26,27,30);
+  color: rgb(155,160,165);
   font-family: 'Lato', sans-serif;
 }
 
 summary {
   cursor:pointer;
-  background-color:  #aa6f73;
-  color: #222;
+  background-color:  rgb(32,33,36);
+  color: rgb(145, 180, 243);
   padding: 10px;
   font-size: x-large;
   font-weight: bold;
@@ -16,7 +16,7 @@ summary {
 
 details {
   width: 60%;
-  background-color:  	#eea990;
+  background-color: rgb(32,33,36);
   margin-bottom: 15px;
   border-radius: 10px;
 }
