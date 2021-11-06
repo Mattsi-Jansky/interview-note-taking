@@ -8,6 +8,7 @@ class QuestionAndAnswer extends React.Component {
     return (
       <details>
         <summary>{this.props.question}</summary>
+        <div className="hint">{this.props.hint}</div>
         <Answer storageKey={this.getStorageKey()}/>
       </details>
     )

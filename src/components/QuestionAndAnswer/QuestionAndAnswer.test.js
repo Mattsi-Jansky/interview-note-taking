@@ -13,6 +13,13 @@ test('renders question', () => {
   expect(questionTextValue).toBeInTheDocument()
 })
 
+test('renders hint', () => { 
+  render(<QuestionAndAnswer question="foo bar" hint="bar foo" />)
+
+  const hintTextValue = screen.getByText(/bar foo/i)
+  expect(hintTextValue).toBeInTheDocument()
+})
+
 test('loads answer from localstorage', () => {
   localStorage.setItem('answer-default-category-foo bar', 'bar foo')
 
