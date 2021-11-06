@@ -21,7 +21,7 @@ class App extends React.Component {
         <QuestionAndAnswer key={i}
           candidateName={this.state.candidateName}
           category={category.name}
-          question={question} />)
+          question={question.value} />)
     }))
     .map((category, i) =>
       <Category 

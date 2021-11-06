@@ -17,16 +17,16 @@ const testCategoriesWithMultipleCategories = [
 const testCategoryWithOneQuestion = [{ 
   categoryName:"Enzyme",
   questions: [
-    "What is the average speed of an unladen swallow?"
+    { "value": "What is the average speed of an unladen swallow?" },
   ]
 }]
 
 const testCategoryWithManyQuestions = [{ 
   categoryName:"Enzyme",
   questions: [
-    "What is the average speed of an unladen swallow?",
-    "What is your favourite color?",
-    "Do you feel lucky?"
+    { "value": "What is the average speed of an unladen swallow?" },
+    { "value":"What is your favourite color?" },
+    { "value":"Do you feel lucky?" }
   ]
 }]
 
