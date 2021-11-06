@@ -38,8 +38,6 @@ Builds the app to `build/index.html`. All CSS, JS, etc is bundled in one file.
 
 ## Todo
 
-* Add optional hints to questions.
-  * I don't want it to turn interviewing into a check-box exercise, so these should be optional and not expected. But it could be useful to have hints as to what correct answer is expected, particularly for technuical questions.
 * Select which categories to show.
   * Not every candidate is likely to apply to every category- this way you can select which categories to test a candidate on beforehand the interview starts.
   * Eg some categories might be "dotnet", "java", "javascript" and you could select from them the languages that this candidate has experience in.
