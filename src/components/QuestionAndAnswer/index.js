@@ -1,5 +1,6 @@
 import React from 'react'
 import Answer from '../Answer'
+import './QuestionAndAnswer.css'
 
 class QuestionAndAnswer extends React.Component {
   getStorageKey = () => `${this.props.candidateName}-${this.props.category}-${this.props.question}`
@@ -8,7 +9,7 @@ class QuestionAndAnswer extends React.Component {
     return (
       <details>
         <summary>{this.props.question}</summary>
-        <div className="hint">{this.props.hint}</div>
+        {this.props.hint && <p className="hint">HINT: {this.props.hint}</p>}
         <Answer storageKey={this.getStorageKey()}/>
       </details>
     )

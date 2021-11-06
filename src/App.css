@@ -32,8 +32,3 @@ details {
 .details-body {
   padding: 15px;
 }
-
-textarea{
-  width:100%;
-  min-height: 100px;
-}
