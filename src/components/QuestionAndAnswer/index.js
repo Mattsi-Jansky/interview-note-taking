@@ -9,7 +9,7 @@ class QuestionAndAnswer extends React.Component {
     return (
       <details>
         <summary>{this.props.question}</summary>
-        {this.props.hint && <p className="hint">HINT: {this.props.hint}</p>}
+        {this.props.hint && <p className="hint">{this.props.hint}</p>}
         <Answer storageKey={this.getStorageKey()}/>
       </details>
     )

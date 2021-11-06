@@ -16,16 +16,14 @@ test('renders question', () => {
 test('renders hint', () => { 
   render(<QuestionAndAnswer question="foo bar" hint="bar foo" />)
 
-  const hintTextValue = screen.getByText(/HINT: bar foo/i)
+  const hintTextValue = screen.getByText(/bar foo/i)
   expect(hintTextValue).toBeInTheDocument()
 })
 
 test('does not render hint if nothing passed', () => { 
   render(<QuestionAndAnswer question="foo bar" />)
 
-  expect(document.querySelector('.hint')).toBeFalsy()
-  expect(() => screen.getByText(/HINT:/i)).toThrow('Unable to find an element')
-  
+  expect(document.querySelector('.hint')).toBeFalsy() 
 })
 
 test('loads answer from localstorage', () => {
