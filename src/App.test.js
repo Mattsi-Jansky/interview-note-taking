@@ -134,3 +134,13 @@ test('Do not display any categories if no candidate selected', () => {
   var categories = wrapper.find(Category)
   expect(categories.length).toEqual(0)
 })
+
+test('Passes categoryName to QuestionAndAnswer components', () => {
+  const wrapper = shallow(<App 
+    candidateName="Dave"
+    categories={testCategoryWithOneQuestion}/>)
+
+  var questionAndAnswers = wrapper.find(QuestionAndAnswer)
+  expect(questionAndAnswers.length).toEqual(1)
+  expect(questionAndAnswers.get(0).props.categoryName).toBe("Enzyme")
+})

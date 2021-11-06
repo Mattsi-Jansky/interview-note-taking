@@ -31,7 +31,7 @@ test('loads answer from localstorage', () => {
 
   render(<QuestionAndAnswer
     candidateName="default"
-    category="category"
+    categoryName="category"
     question="foo bar" />)
 
   const questionTextValue = screen.getByText(/bar foo/i)
@@ -41,7 +41,7 @@ test('loads answer from localstorage', () => {
 test('given nothing in localstorage, textarea is blank', () => {
   const wrapper = mount(<QuestionAndAnswer
     candidateName="default"
-    category="category"
+    categoryName="category"
     question="foo bar" />)
 
   const textarea = wrapper.find('textarea')
@@ -51,7 +51,7 @@ test('given nothing in localstorage, textarea is blank', () => {
 test('saves answer to localstorage', () => {
   const wrapper = mount(<QuestionAndAnswer
     candidateName="default"
-    category="category"
+    categoryName="category"
     question="foo bar" />)
   const textarea = wrapper.find('textarea')
 
@@ -66,7 +66,7 @@ test('uses question as key for localstorage when reading', () => {
 
   render(<QuestionAndAnswer
     candidateName="default"
-    category="category"
+    categoryName="category"
     question="testy mctestface" />)
 
   const questionTextValue = screen.getByText(/bar foo/i)
@@ -76,7 +76,7 @@ test('uses question as key for localstorage when reading', () => {
 test('uses question as key for localstorage when writing', () => {
   const wrapper = mount(<QuestionAndAnswer
     candidateName="default"
-    category="category"
+    categoryName="category"
     question="testy mctestface" />)
 
   const textarea = wrapper.find('textarea')
@@ -91,7 +91,7 @@ test('uses category as key for localstorage when reading', () => {
 
   render(<QuestionAndAnswer 
     candidateName="default"
-    category="testy mctestface"
+    categoryName="testy mctestface"
     question="foo bar" />)
 
   const questionTextValue = screen.getByText(/bar foo/i)
@@ -101,7 +101,7 @@ test('uses category as key for localstorage when reading', () => {
 test('uses category as key for localstorage when writing', () => {
   const wrapper = mount(<QuestionAndAnswer 
     candidateName="default"
-    category="testy mctestface"
+    categoryName="testy mctestface"
     question="foo bar" />)
 
   const textarea = wrapper.find('textarea')
@@ -116,7 +116,7 @@ test('uses candidate name as key for localstorage when reading', () => {
 
   render(<QuestionAndAnswer 
     candidateName="testy mctestface" 
-    category="category" 
+    categoryName="category" 
     question="foo bar" />)
 
   const questionTextValue = screen.getByText(/bar foo/i)
@@ -126,7 +126,7 @@ test('uses candidate name as key for localstorage when reading', () => {
 test('uses candidate name as key for localstorage when writing', () => {
   const wrapper = mount(<QuestionAndAnswer 
     candidateName="testy mctestface"
-    category="category"
+    categoryName="category"
     question="foo bar" />)
 
   const textarea = wrapper.find('textarea')

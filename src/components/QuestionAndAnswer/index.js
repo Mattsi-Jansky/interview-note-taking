@@ -3,7 +3,7 @@ import Answer from '../Answer'
 import './QuestionAndAnswer.css'
 
 class QuestionAndAnswer extends React.Component {
-  getStorageKey = () => `${this.props.candidateName}-${this.props.category}-${this.props.question}`
+  getStorageKey = () => `${this.props.candidateName}-${this.props.categoryName}-${this.props.question}`
 
   render() {
     return (
